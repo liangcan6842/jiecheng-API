@@ -17,7 +17,7 @@ def test_1_add_information(get_token_fixture):
         "outInId": 3,
         "status": 1
     }
-    url = "http://192.168.110.173:9000/erp-admin-api/v1/sysMessage"
+    url = "http://jiecheng.api.sauou.com/erp-admin-api/v1/sysMessage"
     res = requests.post(url=url, headers=headers, json=data).text
     res = json.loads(res)
     print(res)
@@ -31,7 +31,7 @@ def test_2_select_information(get_token_fixture):
         "Authorization": get_token_fixture
     }
     data = {"id":"9"}
-    url = f"http://192.168.110.173:9000/erp-admin-api/v1/sysMessage"
+    url = "http://jiecheng.api.sauou.com/erp-admin-api/v1/sysMessage"
     res = requests.get(url=url, headers=headers,params =data).text
     res = json.loads(res)
     print(res)
@@ -45,7 +45,7 @@ def test_3_select_page_information(get_token_fixture):
         "Authorization": get_token_fixture
     }
     data = {"page":"1","limit":"10"}
-    url = f"http://192.168.110.173:9000/erp-admin-api/v1/sysMessage/page"
+    url = "http://jiecheng.api.sauou.com/erp-admin-api/v1/sysMessage/page"
     res = requests.get(url=url, headers=headers,params=data).text
     res = json.loads(res)
     print(res)

@@ -5,7 +5,7 @@
 #     :return:
 #     '''
 #     headers = {"Content-Type": "application/json;charset=utf8"}
-#     url = "http://192.168.110.173:9000/sys-admin-api/v1/login"
+#     url = "http://jiecheng.api.sauou.com/doc.html#/home "
 #     data = {
 #         "username": "admin",
 #         "password": "123456"

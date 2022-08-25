@@ -1,0 +1,66 @@
+import requests,json,pytest
+def test_1_storage(get_token_fixture):
+    """入库"""
+    # 通过Fixture函数获取get_token_fixture值，即token，再将token添加到请求头中
+    headers = {
+        "Content-Type": "application/json;charset=utf8",
+        "Authorization": get_token_fixture
+    }
+    data = {
+        "truckId": 3,
+        "code": "12345678",
+        "lineId": 1,
+        "keeps": [
+            {
+                "productKeepId": 10
+            }
+        ],
+        "inType": 1
+    }
+    url = "http://jiecheng.api.sauou.com/erp-app-api/v1/a/ps/in"
+    res = requests.post(url=url, headers=headers, json=data).text
+    res = json.loads(res)
+    print(res)
+    assert res["code"] == 200
+
+def test_2_storage_record(get_token_fixture):
+    """入库记录"""
+    # 通过Fixture函数获取get_token_fixture值，即token，再将token添加到请求头中
+    headers = {
+        "Content-Type": "application/x-www-form-urlencoded;charset=utf8",
+        "Authorization": get_token_fixture
+    }
+    data = {
+            "limit":"10",
+            "page":"1",
+            "name": "三开开关"
+    }
+    url = "http://jiecheng.api.sauou.com/erp-app-api/v1/a/ps/in/record"
+    res = requests.get(url=url, headers=headers, params=data).text
+    res = json.loads(res)
+    print(res)
+    assert res["code"] == 200
+
+def test_3_storage_record_details(get_token_fixture):
+    """入库详情"""
+    # 通过Fixture函数获取get_token_fixture值，即token，再将token添加到请求头中
+    headers = {
+        "Content-Type": "application/x-www-form-urlencoded;charset=utf8",
+        "Authorization": get_token_fixture
+    }
+    data = {
+            "id":"1"
+    }
+    url = "http://jiecheng.api.sauou.com/erp-app-api/v1/a/ps/in/detail"
+    res = requests.get(url=url, headers=headers, params=data).text
+    res = json.loads(res)
+    print(res)
+    assert res["code"] == 200
+
+
+
+
+
+
+if __name__ == '__main__':
+    pytest.main()
