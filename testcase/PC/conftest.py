@@ -9,7 +9,7 @@ def get_token_fixture():
     :return:
     '''
     headers = {"Content-Type": "application/json;charset=utf8"}
-    url = "http://jiecheng.api.sauou.com/sys-admin-api/v1/login"
+    url = "http://192.168.110.173:9100/sys-admin-api/v1/login"
     data = {
         "username": "admin",
         "password": "123456"

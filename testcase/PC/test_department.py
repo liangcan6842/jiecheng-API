@@ -107,8 +107,8 @@ def test_6_select_user(get_token_fixture):
     url = "http://jiecheng.api.sauou.com/sys-admin-api/v1/user/list"
     res = requests.get(url=url, headers=headers).text
     res = json.loads(res)
-    print(res)
-
+    # print(res)
+    print("\n{}".format(res))
     assert res["code"] == 200
 
 def test_7_add_user_management(get_token_fixture):
