@@ -1,4 +1,5 @@
 import pytest,requests,json
+URL = "http://192.168.110.173:9100"
 def test_1_add_order(get_token_fixture):
     """新增订单"""
     # 通过Fixture函数获取get_token_fixture值，即token，再将token添加到请求头中
@@ -11,7 +12,7 @@ def test_1_add_order(get_token_fixture):
             "productCount": 200,
             "customId": 1
     }
-    url = "http://192.168.110.173:9100/erp-admin-api/v1/order"
+    url = URL +"/erp-admin-api/v1/order"
     res = requests.post(url=url, headers=headers, json=data).text
     res = json.loads(res)
     print(res)
@@ -33,7 +34,7 @@ def test_2_select_order(get_token_fixture):
             "startTime":"",
             "endTime":""
     }
-    url = "http://192.168.110.173:9100/erp-admin-api/v1/order/page"
+    url = URL + "/erp-admin-api/v1/order/page"
     res = requests.get(url=url, headers=headers, params=data).text
     res = json.loads(res)
     # code = res[]

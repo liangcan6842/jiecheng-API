@@ -7,10 +7,10 @@ def test_1_add_waste(get_token_fixture):
         "Authorization": get_token_fixture
     }
     data = {
-        "colorId": 1,
-        "name": "LED屏",
-        "weight": 1,
-        "lineId": 1
+        "colorId": 7,
+        "name": "电路板",
+        "weight": 4,
+        "lineId": 2
     }
     url = "http://192.168.110.173:9100/erp-app-api/v1/a/wst/add"
     res = requests.post(url=url, headers=headers, json=data).text

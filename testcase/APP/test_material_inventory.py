@@ -1,4 +1,5 @@
 import requests,json,pytest
+URL = "http://192.168.110.173:9100"
 def test_1_storage(get_token_fixture):
     """材料入库"""
     # 通过Fixture函数获取get_token_fixture值，即token，再将token添加到请求头中
@@ -7,15 +8,15 @@ def test_1_storage(get_token_fixture):
         "Authorization": get_token_fixture
     }
     data = {
-        "fromType": 2,      #1:本厂,2:外场
+        "fromType": 1,      #1:本厂,2:外场
         "keeps": [
             {
-                "materialKeepId": 123496   #材料实例ID
+                "materialKeepId": 30   #材料实例ID
             }
         ],
         "inType": 1      #1原材料，2再生料
     }
-    url = "http://192.168.110.173:9100/erp-app-api/v1/a/ms/in"
+    url = URL + "/erp-app-api/v1/a/ms/in"
     res = requests.post(url=url, headers=headers, json=data).text
     res = json.loads(res)
     print(res)
@@ -33,7 +34,7 @@ def test_2_storage_record(get_token_fixture):
             "page":"1",
             "name":"",
     }
-    url = "http://192.168.110.173:9100/erp-app-api/v1/a/ms/in/record"
+    url = URL + "/erp-app-api/v1/a/ms/in/record"
     res = requests.get(url=url, headers=headers, params=data).text
     res = json.loads(res)
     print(res)
@@ -49,7 +50,7 @@ def test_3_storage_record_details(get_token_fixture):
     data = {
             "id":"5"
     }
-    url = "http://192.168.110.173:9100/erp-app-api/v1/a/ms/in/detail"
+    url = URL + "/erp-app-api/v1/a/ms/in/detail"
     res = requests.get(url=url, headers=headers, params=data).text
     res = json.loads(res)
     print(res)
@@ -70,7 +71,7 @@ def test_4_out_storage(get_token_fixture):
                 }
             ]
     }
-    url = "http://192.168.110.173:9100/erp-app-api/v1/a/ms/out"
+    url = URL + "/erp-app-api/v1/a/ms/out"
     res = requests.post(url=url, headers=headers, json=data).text
     res = json.loads(res)
     print(res)
