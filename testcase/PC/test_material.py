@@ -52,7 +52,7 @@ def test_4_print_material_code(get_token_fixture):
         "Authorization": get_token_fixture
     }
     data = {
-            "materialId":"7",
+            "materialId":"6",
             "amount":"1 "
     }
     url = URL + "/erp-admin-api/v1/material/code"

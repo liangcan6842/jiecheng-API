@@ -79,7 +79,7 @@ def test_4_print_product_code(get_token_fixture):
         "Authorization": get_token_fixture
     }
     data = {
-        "productId": "11",
+        "productId": "12",
         "count": "1 "
     }
     url = URL + "/erp-admin-api/v1/product/QR"
